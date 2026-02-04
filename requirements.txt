@@ -1,0 +1,11 @@
+fastmcp
+python-dotenv
+requests
+qdrant-client
+llama-index
+llama-index-embeddings-huggingface
+tqdm
+numpy
+pydantic
+uvicorn
+fastapi
