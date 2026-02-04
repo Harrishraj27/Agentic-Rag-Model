@@ -23,5 +23,3 @@ It is designed as a fully modular, scalable retrieval layer for LLM agents, suit
 
 <img width="1024" height="1536" alt="ChatGPT Image Feb 4, 2026, 09_01_10 PM" src="https://github.com/user-attachments/assets/a1c0fbb5-a09b-4dac-83e8-1f70fe225686" />
 
-Final Output → Sent Back to LLM → High-Quality Grounded Response
-
