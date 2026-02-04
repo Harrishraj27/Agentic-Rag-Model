@@ -2,15 +2,15 @@
 
 This project implements a production-grade Agentic RAG system built using:
 
-Model Context Protocol (MCP)
+#### Model Context Protocol (MCP)
 
-Qdrant Vector Database
+#### Qdrant Vector Database
 
-HuggingFace Embeddings (nomic-embed-text)
+#### HuggingFace Embeddings (nomic-embed-text)
 
-Custom Retrieval Tools (FAQ RAG + BrightData Web Search)
+#### Custom Retrieval Tools (FAQ RAG + BrightData Web Search)
 
-FastMCP Tool Server
+#### FastMCP Tool Server
 
 It is designed as a fully modular, scalable retrieval layer for LLM agents, suitable for ML assistants, research agents, and intelligent helpdesk systems.
 
@@ -21,57 +21,7 @@ It is designed as a fully modular, scalable retrieval layer for LLM agents, suit
 ![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)
 ![Status](https://img.shields.io/badge/Status-Active-success)
 
-
-                              +-----------------------------------------+
-                              |                LLM / Agent              |
-                              | (OpenAI / DeepSeek / Anthropic / HF)   |
-                              +------------------------+----------------+
-                                                       |
-                                              MCP Tool Call
-                                                       |
-                          +----------------------------+-----------------------------+
-                          |                          MCP Server                      |
-                          |                        (server.py)                       |
-                          +-------------+---------------------------+-----------------+
-                                        |                           |
-                                        |                           |
-              +-------------------------+            +--------------+--------------+
-              |                                      |                             |
-              v                                      v                             v
-   +-----------------------------+     +------------------------------+   +-----------------------------+
-   |   ML FAQ Retrieval Tool     |     |   BrightData Web Search      |   |       Future Tools         |
-   | machine_learning_faq_*()    |     |  bright_data_web_search()    |   | (PDF RAG / Browser RAG /   |
-   | → Qdrant RAG                |     | → Google SERP via Proxy      |   |   Domain Agents etc.)      |
-   +---------------+-------------+     +---------------+--------------+   +---------------+-------------+
-                   |                                   |                             
-                   |                                   |                             
-                   |                                   |                             
-                   |                                   v                             
-                   |                        +-------------------------+               
-                   |                        |     Internet Search     |               
-                   |                        |   (Google via Bright)   |               
-                   |                        +-------------------------+               
-                   |                                                           
-                   |                                                           
-                   v                                                           
-     +-----------------------------------------------------------------------------------------+
-     |                                 RAG PIPELINE (rag_code.py)                              |
-     |                                                                                         |
-     |   +---------------------------+       +---------------------------+        +------------+|
-     |   |        EmbedData          | ----> |        QdrantVDB         | <----  | Retriever || 
-     |   |  HF Embeddings (Nomic)    |       |  Vector DB (DOT Sim)     |        |  Top-K     ||
-     |   |  Batch Embedding          |       |  On-Disk Segments        |        |  Search    ||
-     |   +---------------------------+       +---------------------------+        +------------+|
-     |                                                                                         |
-     +-----------------------------------------------------------------------------------------+
-                                                |
-                                                |  Context Returned to MCP Server
-                                                v
-                              +---------------------------------------------+
-                              |             LLM Final Response              |
-                              | Grounded in FAQ or Web Search + Reasoning  |
-                              +---------------------------------------------+
-
+<img width="1024" height="1536" alt="ChatGPT Image Feb 4, 2026, 09_01_10 PM" src="https://github.com/user-attachments/assets/a1c0fbb5-a09b-4dac-83e8-1f70fe225686" />
 
 Final Output → Sent Back to LLM → High-Quality Grounded Response
 
